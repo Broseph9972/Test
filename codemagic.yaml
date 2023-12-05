@@ -12,7 +12,7 @@ workflows:
       - name: Build Android
         script: flutter build apk --release
       - name: Build iOS
-        script: flutter build ipa --release --no-codesign
+        script: flutter build ipa --release
     artifacts:
       - build/**/outputs/**/*.apk
       - build/**/outputs/**/*.aab
