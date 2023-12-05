@@ -1,0 +1,20 @@
+workflows:
+  flutter-app-workflow:
+    name: Flutter App Workflow
+    environment:
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+    scripts:
+      - name: Install dependencies
+        script: flutter pub get
+      - name: Run tests
+        script: flutter test
+      - name: Build Android
+        script: flutter build apk --release
+      - name: Build iOS
+        script: flutter build ios --release --no-codesign
+    artifacts:
+      - build/**/outputs/**/*.apk
+      - build/**/outputs/**/*.aab
+      - build/ios/ipa/*.ipa
